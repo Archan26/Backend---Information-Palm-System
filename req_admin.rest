@@ -1,0 +1,361 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFyY2hhbjI2IiwiYWRtaW5faWQiOjEsImlhdCI6MTY1MzM5ODg3NiwiZXhwIjoxNjUzNDg1Mjc2fQ.MTtVL0QduALibw4owDDL34v84ryHKq9KrXekh7PkcWA
+@baseURL=http://localhost:3000
+
+
+###
+// Admin Login Link
+POST {{baseURL}}/adminAuth/login
+Content-Type: application/json
+
+{
+    "username":"archan26",
+    "password":"abc@2020"
+}
+
+//admin details
+//mandip10, mdp.2020
+//archan26, abc@2020
+
+
+
+//admin dashboard
+###
+GET {{baseURL}}/admin/dashboard/details
+token: {{token}}
+
+
+// Admin Homepage details
+//All supervisors details
+###
+GET {{baseURL}}/admin/supervisor/details
+token: {{token}}
+
+###
+//API for verification of supervisor
+POST {{baseURL}}/admin/supervisor/verification
+token: {{token}}
+Content-Type: application/json
+
+{
+    "sv_status":true,
+    "sv_id": 6
+}
+
+###
+GET {{baseURL}}/admin/supervisor/verified_details
+token: {{token}}
+
+###
+POST {{baseURL}}/admin/supervisor/transfer
+token: {{token}}
+Content-Type: application/json
+
+{
+    "from":7,
+    "to":1
+}
+
+###
+POST {{baseURL}}/admin/supervisor/delete
+token: {{token}}
+Content-Type: application/json
+
+{
+    "sv_id": 1
+}
+
+
+
+
+
+
+//All students details
+
+###
+GET {{baseURL}}/admin/students/nextNumber
+token: {{token}}
+
+
+//register the students details
+###
+POST {{baseURL}}/admin/students/register
+token: {{token}}
+Content-Type: application/json
+
+{
+    "std_name":"",
+    "std_gender":"M",
+    "std_address":"Anand",
+    "std_contact":"9666634771",
+    "sv_id": 1,
+    "inst_id": 1,
+    "grade_id": 4,
+    "std_birthdate": "2021-03-02T18:30:00.000Z"
+}
+
+//Students details
+###
+GET {{baseURL}}/admin/students/details
+token: {{token}}
+
+//Students details
+###
+GET {{baseURL}}/admin/students/common
+token: {{token}}
+
+
+//update the students details
+###
+POST {{baseURL}}/admin/students/update
+token: {{token}}
+Content-Type: application/json
+
+{
+    "std_name":"Hansal Parmar",
+    "std_gender":"M",
+    "std_address":"Rajkot",
+    "std_contact":"8583014554",
+    "sv_id": 4,
+    "inst_id": 1,
+    "grade_id": 10,
+    "std_id": 1,
+    "std_birthdate": "2021-03-02"
+}
+
+//delete the students details
+###
+POST {{baseURL}}/admin/students/delete
+token: {{token}}
+Content-Type: application/json
+
+{
+    "std_id":61,
+    "sv_id":1
+}
+
+
+
+
+
+
+
+//Institutes details
+
+//register the institutes details
+###
+POST {{baseURL}}/admin/institutes/register
+token: {{token}}
+Content-Type: application/json
+
+{
+    "inst_name":"SVP",
+    "inst_address":"Anand",
+    "inst_contact":"9988776644"
+}
+
+###
+GET {{baseURL}}/admin/institutes/details
+token: {{token}}
+
+//update the institutes details
+###
+POST {{baseURL}}/admin/institutes/update
+token: {{token}}
+Content-Type: application/json
+
+{
+    "inst_name":"Charusat University",
+    "inst_address":"Changa, Anand",
+    "inst_contact":"02692-998877",
+    "inst_id":7
+}
+
+//delete the students details
+###
+POST {{baseURL}}/admin/institutes/delete
+token: {{token}}
+Content-Type: application/json
+
+{
+    "inst_id":1
+}
+
+
+
+
+
+
+//Grade Details
+
+//register the grades details
+###
+POST {{baseURL}}/admin/grades/register
+token: {{token}}
+Content-Type: application/json
+
+{
+    "standard": 11
+}
+
+###
+GET {{baseURL}}/admin/grades/details
+token: {{token}}
+
+//update the grades details
+###
+POST {{baseURL}}/admin/grades/update
+token: {{token}}
+Content-Type: application/json
+
+{
+    "standard": 11,
+    "grade_id": 12
+}
+
+//delete the grades details
+###
+POST {{baseURL}}/admin/grades/delete
+token: {{token}}
+Content-Type: application/json
+
+{
+    "grade_id":1
+}
+
+
+
+
+
+
+//Categories Details
+
+//register the Categories details
+###
+POST {{baseURL}}/admin/categories/register
+token: {{token}}
+Content-Type: application/json
+
+{
+    "cat_name": "Fictiton"
+}
+
+###
+GET {{baseURL}}/admin/categories/details
+token: {{token}}
+
+//update the Categories details
+###
+POST {{baseURL}}/admin/categories/update
+token: {{token}}
+Content-Type: application/json
+
+{
+    "cat_id":6,
+    "cat_name":"Science"
+}
+
+//delete the Categories details
+###
+POST {{baseURL}}/admin/categories/delete
+token: {{token}}
+Content-Type: application/json
+
+{
+    "cat_id":5
+}
+
+
+
+
+
+
+
+//Books Upload
+
+###
+GET {{baseURL}}/admin/books/nextNumber
+token: {{token}}
+
+//Books details
+###
+GET {{baseURL}}/admin/books/common
+token: {{token}}
+###
+GET {{baseURL}}/admin/books/details
+token: {{token}}
+
+//update the books details
+###
+POST {{baseURL}}/admin/books/update
+token: {{token}}
+Content-Type: application/json
+
+{
+    "book_id":1,
+    "book_name":"",
+    "book_author":"",
+    "cat_id":1,
+    "grade_id":1,
+}
+
+###
+POST {{baseURL}}/admin/books/requestFile
+token: {{token}}
+Content-Type: application/json
+
+{
+    "book_id":1
+}
+
+
+//delete the books details
+###
+POST {{baseURL}}/admin/books/delete
+token: {{token}}
+Content-Type: application/json
+
+{
+    "book_id":18
+}
+
+
+
+
+
+
+//Device
+###
+GET {{baseURL}}/admin/device/nextNumber
+token: {{token}}
+
+//details for reg, update
+###
+GET {{baseURL}}/admin/device/common
+token: {{token}}
+//Device registration
+###
+POST {{baseURL}}/admin/device/register
+token: {{token}}
+Content-Type: application/json
+
+{
+    "unique_id":"dskjndlkfd",
+    "sv_id":1
+}
+
+//Device Details
+###
+GET {{baseURL}}/admin/device/details
+token: {{token}}
+
+//Device Update
+###
+POST {{baseURL}}/admin/device/update
+token: {{token}}
+Content-Type: application/json
+
+{
+    "device_id":1,
+    "unique_id":"asjdbfkljdfh",
+    "sv_id":1
+}

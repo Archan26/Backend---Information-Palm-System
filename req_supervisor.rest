@@ -1,0 +1,154 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFhc2hpc2gxMiIsInN2X2lkIjoxLCJpYXQiOjE2MTk5MjY0OTMsImV4cCI6MTYyMDAxMjg5M30.swHr-bU1OUctOq6nGCCWBiZhVEVHVW9jOUChrY_T1BQ
+@baseURL=http://localhost:3000
+
+###
+//Supervisor Login Link
+POST {{baseURL}}/supervisorAuth/login
+Content-Type: application/json
+
+{
+    "username":"aashish12",
+    "password":"30.!adp"
+}
+
+
+###
+POST {{baseURL}}/supervisorAuth/registration
+Content-Type: application/json
+
+{
+    "username":"Hinel",
+    "password":"hinel218",
+    "sv_name":"Hinel Mistry",
+    "sv_contact":9853746777,
+    "sv_email":"hinelmistry@gmail.com",
+    "sv_location":"Vyara"
+}
+//supervisor details
+
+//aashish12, 30.!adp
+//svir99, 299.?smt
+//krupa12, kmp@!490
+//yashah89, ya.@89shah
+//dev33, dDb.@3500
+//aayushi123, zashi.?3299
+
+
+
+
+
+
+
+//All students details
+//register the students details
+
+###
+GET {{baseURL}}/supervisor/students/nextNumber
+token: {{token}}
+
+###
+GET {{baseURL}}/supervisor/students/common
+token: {{token}}
+
+###
+POST {{baseURL}}/supervisor/students/register
+token: {{token}}
+Content-Type: application/json
+
+{
+    "std_name":"Gaurang Parmar",
+    "std_gender":"M",
+    "std_address":"Surat",
+    "std_contact":"7878814554",
+    "inst_id": 1,
+    "grade_id":3,
+    "std_birthdate":"2000/03/04"
+}
+
+//Students details
+###
+GET {{baseURL}}/supervisor/students/details
+token: {{token}}
+
+
+###
+//update the students details
+###
+POST {{baseURL}}/supervisor/students/update
+token: {{token}}
+Content-Type: application/json
+
+{
+    "std_name":"Hansal Parmar",
+    "std_gender":"M",
+    "std_address":"Rajkot",
+    "std_contact":"8583014554",
+    "inst_id": null,
+    "grade_id":7,
+    "std_id":1,
+    "std_birthdate":"2000/03/28"
+}
+
+//delete the students details
+###
+POST {{baseURL}}/supervisor/students/delete
+token: {{token}}
+Content-Type: application/json
+
+{
+    "std_id":85
+}
+
+
+
+
+
+
+
+//device details
+
+//not assign device details
+###
+GET {{baseURL}}/supervisor/device/notAssignDetails
+token: {{token}}
+
+//assign device details
+###
+GET {{baseURL}}/supervisor/device/assignDetails
+token: {{token}}
+
+###
+GET {{baseURL}}/supervisor/device/commonDetails
+token: {{token}}
+
+//Assign device to student
+###
+POST {{baseURL}}/supervisor/device/assignDevice
+token: {{token}}
+Content-Type: application/json
+
+{
+    "device_id":2,
+    "std_id":6
+}
+
+//Un-Assign device to student
+###
+POST {{baseURL}}/supervisor/device/unAssignDevice
+token: {{token}}
+Content-Type: application/json
+
+{
+    "device_id":1,
+    "std_id":2
+}
+
+###
+GET {{baseURL}}/supervisor/device/deviceDetails
+token: {{token}}
+
+
+//receive the messages
+###
+GET {{baseURL}}/supervisor/messages/receive
+token: {{token}}
